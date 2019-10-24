@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-radar.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -79,15 +86,15 @@
 
 
 
-<meta name="description" content="今天告诉大家一个好用的编辑器 Markdown，他是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。今后老大让你写文档就可以用它，下面就是一些编写格式：">
+<meta name="description" content="Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。今天开始，我们将逐步学习 Markdown 的写作格式。">
 <meta name="keywords" content=".md">
 <meta property="og:type" content="article">
-<meta property="og:title" content=".md文档写作说明">
-<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;2019&#x2F;10&#x2F;24&#x2F;MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E&#x2F;index.html">
+<meta property="og:title" content=".md文档写作说明（一）">
+<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;2019&#x2F;10&#x2F;24&#x2F;MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%80%EF%BC%89&#x2F;index.html">
 <meta property="og:site_name" content="王云优">
-<meta property="og:description" content="今天告诉大家一个好用的编辑器 Markdown，他是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。今后老大让你写文档就可以用它，下面就是一些编写格式：">
+<meta property="og:description" content="Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。今天开始，我们将逐步学习 Markdown 的写作格式。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T08:04:06.948Z">
+<meta property="og:updated_time" content="2019-10-24T09:18:12.670Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://wangyunyou.top/2019/10/24/MD文档写作说明/"/>
+  <link rel="canonical" href="http://wangyunyou.top/2019/10/24/MD文档写作说明（一）/"/>
 
 
 
 
 
-  <title>.md文档写作说明 | 王云优</title>
+  <title>.md文档写作说明（一） | 王云优</title>
   
 
 
@@ -169,7 +176,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">(づ｡◕‿‿◕｡)づ</p>
+        <p class="site-subtitle">每天进步一点点(づ｡◕‿‿◕｡)づ</p>
       
   </div>
 
@@ -305,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangyunyou.top/2019/10/24/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E/">
+    <link itemprop="mainEntityOfPage" href="http://wangyunyou.top/2019/10/24/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王云优">
@@ -322,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">.md文档写作说明</h1>
+          <h1 class="post-title" itemprop="name headline">.md文档写作说明（一）</h1>
         
 
         <div class="post-meta">
@@ -388,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k 字
+                  211 字
                 </span>
               
 
@@ -404,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  1 分钟
                 </span>
               
             </div>
@@ -425,128 +432,18 @@
       
 
       
-        <p>今天告诉大家一个好用的编辑器 Markdown，他是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。<br>今后老大让你写文档就可以用它，下面就是一些编写格式：</p>
+        <p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>今天开始，我们将逐步学习 Markdown 的写作格式。</p>
 <a id="more"></a>
 
-<p>一、标题<br>标题其实和 HTML 中的 h 系列很像，想要设置为标题的文字前面加#来表示<br>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p>
-<p>注：标准语法一般在#后跟个空格再写文字，</p>
-<p>示例：</p>
-<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><p>效果如下：</p>
-<p>这是一级标题<br>这是二级标题<br>这是三级标题<br>这是四级标题<br>这是五级标题<br>这是六级标题<br>二、字体<br>加粗<br>要加粗的文字左右分别用两个*号包起来</p>
-<p>斜体<br>要倾斜的文字左右分别用一个*号或者用_包起来</p>
-<p>斜体加粗<br>要倾斜和加粗的文字左右分别用三个*号包起来</p>
-<p>删除线<br>要加删除线的文字左右分别用两个~~号包起来</p>
-<p>示例：</p>
-<p><strong>这是加粗的文字</strong><br><em>这是倾斜的文字_`<br>**_这是斜体加粗的文字</em>**<br><del>这是加删除线的文字</del></p>
-<p>效果如下：</p>
-<p>这是加粗的文字<br>这是倾斜的文字<br>这是斜体加粗的文字<br>这是加删除线的文字</p>
-<p>三、引用<br>在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;<br>n 个…</p>
-<p>示例：</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<p>这是引用的内容</p>
-<blockquote>
-<p>这是引用的内容</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>效果如下：</p>
-<p>这是引用的内容<br>这是引用的内容<br>这是引用的内容<br>这是引用的内容</p>
-<p>四、分割线<br>三个或者三个以上的 - 或者 * 都可以。</p>
-<p>示例：</p>
-<hr>
-<hr>
-<p>效果如下：<br>可以看到，显示效果是一样的。</p>
-<p>五、图片<br>语法：</p>
-<p>![图片alt](图片地址 ‘’图片 title’’)</p>
-<p>图片 alt 就是显示在图片下面的文字，相当于对图片内容的解释。<br>图片 title 是图片的标题，当鼠标移到图片上时显示的内容。title 可加可不加</p>
-<p>**上传本地图片直接拖进去</p>
-<p>六、超链接<br>语法：</p>
-<p><a href="超链接地址" title="超链接title">超链接名</a><br>title 可加可不加</p>
-<p>示例：</p>
-<p><a href="http://baidu.com" target="_blank" rel="noopener">百度</a></p>
-<p>效果如下：</p>
-<p>百度</p>
-<p>七、列表<br>无序列表<br>语法：<br>无序列表用 - + * 任何一种都可以</p>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<ul>
-<li>列表内容</li>
-</ul>
-<p>注意：- + * 跟内容之间都要有一个空格</p>
-<p>效果如下：</p>
-<p>列表内容</p>
-<p>列表内容</p>
-<p>列表内容</p>
-<p>有序列表<br>语法：<br>数字加点</p>
-<p>1.列表内容 2.列表内容 3.列表内容</p>
-<p>注意：序号跟内容之间要有空格</p>
-<p>效果如下：</p>
-<p>1.列表内容 2.列表内容 3.列表内容</p>
-<p>列表嵌套<br>上一级和下一级之间敲三个空格即可</p>
-<p>一级无序列表内容</p>
-<p>二级无序列表内容<br>二级无序列表内容<br>二级无序列表内容<br>一级无序列表内容</p>
-<p>二级有序列表内容<br>二级有序列表内容<br>二级有序列表内容<br>一级有序列表内容</p>
-<p>二级无序列表内容<br>二级无序列表内容<br>二级无序列表内容<br>一级有序列表内容</p>
-<p>二级有序列表内容<br>二级有序列表内容<br>二级有序列表内容<br>八、表格<br>语法：</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th align="center">表头</th>
-<th align="right">表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>内容</td>
-<td align="center">内容</td>
-<td align="right">内容</td>
-</tr>
-<tr>
-<td>内容</td>
-<td align="center">内容</td>
-<td align="right">内容</td>
-</tr>
-</tbody></table>
-<p>第二行分割表头和内容。</p>
-<ul>
-<li>有一个就行，为了对齐，多加了几个<br>文字默认居左 -两边加：表示文字居中 -右边加：表示文字居右<br>注：原生的语法两边都要用 | 包起来。此处省略</li>
-</ul>
-<p>示例：</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>第一行</td>
-<td>第一行</td>
-<td>第一行</td>
-</tr>
-<tr>
-<td>第二行</td>
-<td>第二行</td>
-<td>第二行</td>
-</tr>
-<tr>
-<td>第三行</td>
-<td>第三行</td>
-<td>第三行</td>
-</tr>
-</tbody></table>
-<p>效果如下：</p>
-<p>表头 表头 表头<br>第一行 第一行 第一行<br>第二行 第二行 第二行<br>第三行 第三行 第三行<br>九、代码<br>语法：<br>单行代码：代码之间分别用一个反引号包起来</p>
-<pre><code>`代码内容`</code></pre><p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码内容</span><br></pre></td></tr></table></figure></code></pre><p>以上就是常用的格式，很简单，大家试着写一写；很快就能上手。</p>
+<h2 id="Markdown-标题"><a href="#Markdown-标题" class="headerlink" title="Markdown 标题"></a>Markdown 标题</h2><h4 id="1、使用-和-标记一级和二级标题"><a href="#1、使用-和-标记一级和二级标题" class="headerlink" title="1、使用 = 和 - 标记一级和二级标题"></a>1、使用 = 和 - 标记一级和二级标题</h4><p>= 和 - 标记语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">我展示的是一级标题</span><br><span class="line">=================</span><br><span class="line"></span><br><span class="line">我展示的是二级标题</span><br><span class="line">-----------------</span><br></pre></td></tr></table></figure>
 
+<p>显示效果如下：</p>
+<h1 id="我展示的是一级标题"><a href="#我展示的是一级标题" class="headerlink" title="我展示的是一级标题"></a>我展示的是一级标题</h1><h2 id="我展示的是二级标题"><a href="#我展示的是二级标题" class="headerlink" title="我展示的是二级标题"></a>我展示的是二级标题</h2><h4 id="2、使用-号标记"><a href="#2、使用-号标记" class="headerlink" title="2、使用 # 号标记"></a>2、使用 # 号标记</h4><p>使用 # 号可表示 1-6 级标题，一级标题对应一个 # 号，二级标题对应两个 # 号，以此类推。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6>
       
     </div>
     
@@ -595,7 +492,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangyunyou.top/2019/10/24/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E/" title=".md文档写作说明">http://wangyunyou.top/2019/10/24/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E/</a>
+    <a href="http://wangyunyou.top/2019/10/24/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%80%EF%BC%89/" title=".md文档写作说明（一）">http://wangyunyou.top/2019/10/24/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%80%EF%BC%89/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -795,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#这是一级标题"><span class="nav-number">1.</span> <span class="nav-text">这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是二级标题"><span class="nav-number">1.1.</span> <span class="nav-text">这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这是三级标题"><span class="nav-number">1.1.1.</span> <span class="nav-text">这是三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#这是四级标题"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">这是四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#这是五级标题"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">这是五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#这是六级标题"><span class="nav-number">1.1.1.1.1.1.</span> <span class="nav-text">这是六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown-标题"><span class="nav-number">1.</span> <span class="nav-text">Markdown 标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、使用-和-标记一级和二级标题"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、使用 = 和 - 标记一级和二级标题</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我展示的是一级标题"><span class="nav-number"></span> <span class="nav-text">我展示的是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我展示的是二级标题"><span class="nav-number">1.</span> <span class="nav-text">我展示的是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2、使用-号标记"><span class="nav-number">1.0.1.</span> <span class="nav-text">2、使用 # 号标记</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number"></span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number">1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-number">1.1.</span> <span class="nav-text">三级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#四级标题"><span class="nav-number">1.1.1.</span> <span class="nav-text">四级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#五级标题"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">五级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#六级标题"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -829,12 +726,12 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.2k</span>
+    <span title="Site words total count">284</span>
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">WYY</div>
 
 
 
@@ -842,7 +739,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
