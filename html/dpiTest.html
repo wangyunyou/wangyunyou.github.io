@@ -86,14 +86,15 @@
 
 
 
-<meta name="description" content="王云优的博客">
+<meta name="description" content="王云优の屏幕分辨率测试                                var s = &quot;&quot;;         s += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;&quot;;         s += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;&quot;;">
 <meta name="keywords" content="王云优,前端,web,开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="王云优">
-<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;tags&#x2F;%E7%A2%8E%E7%A2%8E%E5%BF%B5&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;html&#x2F;dpiTest.html">
 <meta property="og:site_name" content="王云优">
-<meta property="og:description" content="王云优的博客">
+<meta property="og:description" content="王云优の屏幕分辨率测试                                var s = &quot;&quot;;         s += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;&quot;;         s += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;&quot;;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-25T02:34:00.252Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://wangyunyou.top/tags/碎碎念/"/>
+  <link rel="canonical" href="http://wangyunyou.top/html/dpiTest.html"/>
 
 
 
 
 
-  <title>标签: 碎碎念 | 王云优</title>
+  <title> | 王云优</title>
   
 
 
@@ -159,7 +160,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,54 +298,88 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>碎碎念<small>标签</small>
-        </h1>
-      </div>
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
 
       
+      
+      
+      <div class="post-body">
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/08/08/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
+          <!DOCTYPE html>
+<html lang="en">
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-08T15:23:38+08:00"
-              content="2018-08-08" >
-          08-08
-        </time>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王云优の屏幕分辨率测试</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div style=" width:88%;margin:30px auto; color:blue;" id="div_html"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript">
+        var s = "";
+        s += " 网页可见区域宽：" + document.body.clientWidth + "<br />";
+        s += " 网页可见区域高：" + document.body.clientHeight + "<br />";
+        s += " 网页可见区域宽：" + document.body.offsetWidth + " (包括边线和滚动条的宽)" + "<br />";
+        s += " 网页可见区域高：" + document.body.offsetHeight + " (包括边线的宽)" + "<br />";
+        s += " 网页正文全文宽：" + document.body.scrollWidth + "<br />";
+        s += " 网页正文全文高：" + document.body.scrollHeight + "<br />";
+        s += " 屏幕分辨率的高：" + window.screen.height + "<br />";
+        s += " 屏幕分辨率的宽：" + window.screen.width + "<br />";
+        s += " 屏幕可用工作区高度：" + window.screen.availHeight + "<br />";
+        s += " 屏幕可用工作区宽度：" + window.screen.availWidth + "<br />";
+        s += " 你的屏幕设置是 " + window.screen.colorDepth + " 位彩色" + "<br />" + "<br />";
+        s += " <b style='color:red'>前端交流请添加微信：wangyunyou1995</b>" + "<br />";
+        document.getElementById("div_html").innerHTML = s;
+    </script>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王云优的官方网站</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <a href="/html/fenbianlv.html">分辨率测试</a>
+    <div style=" width:88%;margin:30px auto; color:blue;" id="div_html"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</body>
+
+</html> -->
+        
       </div>
-
-    </header>
-  </article>
-
-
+      
+      
       
     </div>
-
+    
+    
+    
   </div>
-  
-  
-  
-
-  
 
 
           </div>
@@ -352,6 +387,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -493,7 +532,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.6k</span>
+    <span title="Site words total count">1.5k</span>
   
 </div>
 
@@ -621,6 +660,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
