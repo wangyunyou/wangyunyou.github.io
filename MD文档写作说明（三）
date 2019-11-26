@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="小工具,分辨率," />
+  <meta name="keywords" content=".md," />
 
 
 
@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="点我屏幕分辩率测试">
-<meta name="keywords" content="小工具,分辨率">
+<meta name="description" content="Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。我们将逐步学习 Markdown 的写作格式。 （三）列表及区块">
+<meta name="keywords" content=".md">
 <meta property="og:type" content="article">
-<meta property="og:title" content="屏幕分辩率测试">
-<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;%E5%B1%8F%E5%B9%95%E5%88%86%E8%BE%A8%E7%8E%87%E6%B5%8B%E8%AF%95&#x2F;index.html">
+<meta property="og:title" content=".md文档写作说明（三）">
+<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%89%EF%BC%89">
 <meta property="og:site_name" content="王云优">
-<meta property="og:description" content="点我屏幕分辩率测试">
+<meta property="og:description" content="Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。我们将逐步学习 Markdown 的写作格式。 （三）列表及区块">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-25T02:44:59.396Z">
+<meta property="og:updated_time" content="2019-10-25T02:08:00.053Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://wangyunyou.top/屏幕分辨率测试/"/>
+  <link rel="canonical" href="http://wangyunyou.top/MD文档写作说明（三）"/>
 
 
 
 
 
-  <title>屏幕分辩率测试 | 王云优</title>
+  <title>.md文档写作说明（三） | 王云优</title>
   
 
 
@@ -312,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangyunyou.top/%E5%B1%8F%E5%B9%95%E5%88%86%E8%BE%A8%E7%8E%87%E6%B5%8B%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="http://wangyunyou.top/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%89%EF%BC%89">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王云优">
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">屏幕分辩率测试</h1>
+          <h1 class="post-title" itemprop="name headline">.md文档写作说明（三）</h1>
         
 
         <div class="post-meta">
@@ -341,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T15:23:38+08:00">
-                2018-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T14:28:32+08:00">
+                2019-03-15
               </time>
             
 
@@ -364,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
-                    <span itemprop="name">小工具</span>
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
                   </a>
                 </span>
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  9 字
+                  547 字
                 </span>
               
 
@@ -432,7 +432,85 @@
       
 
       
-        <p><a href="/html/dpiTest.html"><div style="text-align:center">点我<p>屏幕分辩率测试</h2></div></a></p>
+        <p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。<br>我们将逐步学习 Markdown 的写作格式。</p>
+<h1 id="（三）列表及区块"><a href="#（三）列表及区块" class="headerlink" title="（三）列表及区块"></a>（三）列表及区块</h1><a id="more"></a>
+
+<h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1.列表"></a>1.列表</h2><p>Markdown 支持有序列表和无序列表。无序列表使用星号<code>*</code>、加号<code>+</code>或是减号<code>-</code>作为列表标记，有序列表使用数字并加上<code>.</code> 来表示，如：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">我是无序列表</span><br><span class="line"><span class="bullet">* </span>第一项</span><br><span class="line"><span class="bullet">* </span>第二项</span><br><span class="line"><span class="bullet">* </span>第三项</span><br><span class="line"></span><br><span class="line"><span class="bullet">+ </span>第一项</span><br><span class="line"><span class="bullet">+ </span>第二项</span><br><span class="line"><span class="bullet">+ </span>第三项</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>第一项</span><br><span class="line"><span class="bullet">- </span>第二项</span><br><span class="line"><span class="bullet">- </span>第三项</span><br><span class="line"></span><br><span class="line">我是有序列表</span><br><span class="line"><span class="bullet">1. </span>第一项</span><br><span class="line"><span class="bullet">2. </span>第二项</span><br><span class="line"><span class="bullet">3. </span>第三项</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<p>我是无序列表</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<p>我是有序列表</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<h2 id="2-区块"><a href="#2-区块" class="headerlink" title="2.区块"></a>2.区块</h2><p>Markdown 区块引用是在段落开头使用<code>&gt;</code>符号，然后后面紧跟一个空格符号：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 我是区块内容</span></span><br><span class="line"><span class="quote">&gt; 我是区块内容</span></span><br><span class="line"><span class="quote">&gt; 我是区块内容</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<blockquote>
+<p>我是区块内容<br>我是区块内容<br>我是区块内容</p>
+</blockquote>
+<p>另外区块是可以嵌套的，一个<code>&gt;</code>符号是最外层，两个<code>&gt;</code>符号是第一层嵌套，以此类推：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 我是区块内容</span></span><br><span class="line">&gt;&gt; 我是第一层嵌套</span><br><span class="line">&gt;&gt;&gt; 我是第二层嵌套</span><br><span class="line">&gt;&gt;&gt;&gt; 我是第三层嵌套</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<blockquote>
+<p>我是区块内容</p>
+<blockquote>
+<p>我是第一层嵌套</p>
+<blockquote>
+<p>我是第二层嵌套</p>
+<blockquote>
+<p>我是第三层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="3-区块中使用列表"><a href="#3-区块中使用列表" class="headerlink" title="3.区块中使用列表"></a>3.区块中使用列表</h2><p>实例如下：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; 区块中使用列表</span></span><br><span class="line"><span class="quote">&gt; 1. 第一项</span></span><br><span class="line"><span class="quote">&gt; 2. 第二项</span></span><br><span class="line"><span class="quote">&gt; + 第一项</span></span><br><span class="line"><span class="quote">&gt; + 第二项</span></span><br><span class="line"><span class="quote">&gt; + 第三项</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<blockquote>
+<p>区块中使用列表</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+</blockquote>
+<h2 id="3-列表中使用区块"><a href="#3-列表中使用区块" class="headerlink" title="3.列表中使用区块"></a>3.列表中使用区块</h2><p>如果要在列表项目内放进区块，那么就需要在<code>&gt;</code>前添加四个空格的缩进。实例如下：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>第一项</span><br><span class="line"><span class="code">    &gt; 我是区块内容</span></span><br><span class="line"><span class="code">    &gt; 我是区块内容</span></span><br><span class="line"><span class="bullet">* </span>第二项</span><br></pre></td></tr></table></figure>
+
+<p>显示效果如下：</p>
+<ul>
+<li>第一项<blockquote>
+<p>我是区块内容<br>我是区块内容</p>
+</blockquote>
+</li>
+<li>第二项</li>
+</ul>
 
       
     </div>
@@ -482,7 +560,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangyunyou.top/%E5%B1%8F%E5%B9%95%E5%88%86%E8%BE%A8%E7%8E%87%E6%B5%8B%E8%AF%95/" title="屏幕分辩率测试">http://wangyunyou.top/%E5%B1%8F%E5%B9%95%E5%88%86%E8%BE%A8%E7%8E%87%E6%B5%8B%E8%AF%95/</a>
+    <a href="http://wangyunyou.top/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%89%EF%BC%89" title=".md文档写作说明（三）">http://wangyunyou.top/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%89%EF%BC%89</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -497,9 +575,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/" rel="tag"># 小工具</a>
-          
-            <a href="/tags/%E5%88%86%E8%BE%A8%E7%8E%87/" rel="tag"># 分辨率</a>
+            <a href="/tags/md/" rel="tag"># .md</a>
           
         </div>
       
@@ -512,8 +588,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E5%AF%B9%E8%B1%A1%E7%85%A7%E7%89%87/" rel="next" title="对象照片">
-                <i class="fa fa-chevron-left"></i> 对象照片
+              <a href="/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%BA%8C%EF%BC%89" rel="next" title=".md文档写作说明（二）">
+                <i class="fa fa-chevron-left"></i> .md文档写作说明（二）
               </a>
             
           </div>
@@ -522,8 +598,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%B8%80%EF%BC%89/" rel="prev" title=".md文档写作说明（一）">
-                .md文档写作说明（一） <i class="fa fa-chevron-right"></i>
+              <a href="/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E5%9B%9B%EF%BC%89" rel="prev" title=".md文档写作说明（四）">
+                .md文档写作说明（四） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -576,8 +652,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -669,6 +754,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#（三）列表及区块"><span class="nav-text">（三）列表及区块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-列表"><span class="nav-text">1.列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-区块"><span class="nav-text">2.区块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-区块中使用列表"><span class="nav-text">3.区块中使用列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-列表中使用区块"><span class="nav-text">3.列表中使用区块</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
