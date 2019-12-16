@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>vue报错NavigationDuplicated</title>
+      <link href="/VUE%E6%8A%A5%E9%94%99NavigationDuplicated/"/>
+      <url>/VUE%E6%8A%A5%E9%94%99NavigationDuplicated/</url>
+      
+        <content type="html"><![CDATA[<p>开发过程中，vue 报错 NavigationDuplicated.</p><h3 id="出错方式"><a href="#出错方式" class="headerlink" title="出错方式"></a>出错方式</h3><p>点击同一个 router-link；比如：页面显示（router-view）已经为用户管理页面，再次点击用户管理标签：<br><img src="/img/NavigationDuplicatedError.png"></p><h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><p>NavigationDuplicated {_name:”NavigationDuplicated”, name:”NavigationDuplicated”, message: “…”, stack: “…”}<br><img src="/img/NavigationDuplicated.png"></p><a id="more"></a><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>在 main.js 中添加如下代码：</p><img src="/img/NavigationDuplicatedSolution.png"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> originalPush = Router.prototype.push</span><br><span class="line">Router.prototype.push = <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">location</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> originalPush.call(<span class="keyword">this</span>, location).catch(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>再次点击的时候就不会报错啦！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 解决方案 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>.md文档写作说明（五）</title>
       <link href="/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%BA%94%EF%BC%89/"/>
       <url>/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%BA%94%EF%BC%89/</url>
