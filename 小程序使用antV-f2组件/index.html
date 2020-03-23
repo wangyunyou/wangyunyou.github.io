@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="小程序," />
 
 
 
@@ -86,20 +86,18 @@
 
 
 
-<meta name="description" content="开发过程中，vue 报错 NavigationDuplicated. 出错方式点击同一个 router-link；比如：页面显示（router-view）已经为用户管理页面，再次点击用户管理标签： 报错信息NavigationDuplicated {_name:”NavigationDuplicated”, name:”NavigationDuplicated”, message: “…”, st">
-<meta name="keywords" content="vue">
+<meta name="description" content="在小程序开发的过程中，需要一个图表插件。搜索了各个插件以后，感觉 antV 比较美观，于是决定使用 antV。但是在使用的过程中，一步一步按照 antV 的文档来开发，并不能实现想要的功能。搜索各方解决方案以后，感觉或多或少都有些问题出现。以下代码为我的 demo 成品，其实也并不复杂。使用前请先自行安装 antV-f2.">
+<meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue报错NavigationDuplicated">
-<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;VUE%E6%8A%A5%E9%94%99NavigationDuplicated&#x2F;index.html">
+<meta property="og:title" content="小程序使用antV-f2组件">
+<meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8antV-f2%E7%BB%84%E4%BB%B6&#x2F;index.html">
 <meta property="og:site_name" content="王云优">
-<meta property="og:description" content="开发过程中，vue 报错 NavigationDuplicated. 出错方式点击同一个 router-link；比如：页面显示（router-view）已经为用户管理页面，再次点击用户管理标签： 报错信息NavigationDuplicated {_name:”NavigationDuplicated”, name:”NavigationDuplicated”, message: “…”, st">
+<meta property="og:description" content="在小程序开发的过程中，需要一个图表插件。搜索了各个插件以后，感觉 antV 比较美观，于是决定使用 antV。但是在使用的过程中，一步一步按照 antV 的文档来开发，并不能实现想要的功能。搜索各方解决方案以后，感觉或多或少都有些问题出现。以下代码为我的 demo 成品，其实也并不复杂。使用前请先自行安装 antV-f2.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;img&#x2F;NavigationDuplicatedError.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;img&#x2F;NavigationDuplicated.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;img&#x2F;NavigationDuplicatedSolution.png">
-<meta property="og:updated_time" content="2020-03-23T07:45:36.254Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;img&#x2F;antV-f2.png">
+<meta property="og:updated_time" content="2020-03-23T08:17:29.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;img&#x2F;NavigationDuplicatedError.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;img&#x2F;antV-f2.png">
 
 
 
@@ -129,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://wangyunyou.top/VUE报错NavigationDuplicated/"/>
+  <link rel="canonical" href="http://wangyunyou.top/小程序使用antV-f2组件/"/>
 
 
 
 
 
-  <title>vue报错NavigationDuplicated | 王云优</title>
+  <title>小程序使用antV-f2组件 | 王云优</title>
   
 
 
@@ -316,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wangyunyou.top/VUE%E6%8A%A5%E9%94%99NavigationDuplicated/">
+    <link itemprop="mainEntityOfPage" href="http://wangyunyou.top/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8antV-f2%E7%BB%84%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="王云优">
@@ -333,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue报错NavigationDuplicated</h1>
+          <h1 class="post-title" itemprop="name headline">小程序使用antV-f2组件</h1>
         
 
         <div class="post-meta">
@@ -345,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-15T08:56:27+08:00">
-                2019-08-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-16T10:47:35+08:00">
+                2020-01-16
               </time>
             
 
@@ -399,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  111 字
+                  538 字
                 </span>
               
 
@@ -415,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -436,17 +434,15 @@
       
 
       
-        <p>开发过程中，vue 报错 NavigationDuplicated.</p>
-<h3 id="出错方式"><a href="#出错方式" class="headerlink" title="出错方式"></a>出错方式</h3><p>点击同一个 router-link；比如：页面显示（router-view）已经为用户管理页面，再次点击用户管理标签：<br><img src="/img/NavigationDuplicatedError.png"></p>
-<h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><p>NavigationDuplicated {_name:”NavigationDuplicated”, name:”NavigationDuplicated”, message: “…”, stack: “…”}<br><img src="/img/NavigationDuplicated.png"></p>
+        <p>在小程序开发的过程中，需要一个图表插件。搜索了各个插件以后，感觉 antV 比较美观，于是决定使用 antV。<br>但是在使用的过程中，一步一步按照 antV 的文档来开发，并不能实现想要的功能。搜索各方解决方案以后，感觉或多或少都有些问题出现。<br>以下代码为我的 demo 成品，其实也并不复杂。使用前请先自行安装 antV-f2.</p>
 <a id="more"></a>
 
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>在 main.js 中添加如下代码：</p>
-<img src="/img/NavigationDuplicatedSolution.png">
+<p>成品图<br><img src="/img/antV-f2.png"></p>
+<h3 id="wxml"><a href="#wxml" class="headerlink" title="wxml"></a>wxml</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ff-canvas</span> <span class="attr">id</span>=<span class="string">"column-dom"</span> <span class="attr">canvas-id</span>=<span class="string">"column"</span> <span class="attr">opts</span>=<span class="string">"&#123;&#123; opts &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">ff-canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> originalPush = Router.prototype.push</span><br><span class="line">Router.prototype.push = <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">location</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> originalPush.call(<span class="keyword">this</span>, location).catch(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="wxss"><a href="#wxss" class="headerlink" title="wxss"></a>wxss</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">800</span>rpx;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: space-between;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#column-dom</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>再次点击的时候就不会报错啦！</p>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import F2 from '@antv/wx-f2'; // 注：也可以不引入， initChart 方法已经将 F2 传入，如果需要引入，注意需要安装 @antv/wx-f2 依赖</span></span><br><span class="line"><span class="keyword">let</span> chart = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initChart</span>(<span class="params">canvas, width, height, F2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> data = [&#123;</span><br><span class="line">    amount: <span class="number">20</span>,</span><br><span class="line">    ratio: <span class="number">0.1</span>,</span><br><span class="line">    memo: <span class="string">'学习'</span>,</span><br><span class="line">    <span class="keyword">const</span>: <span class="string">'const'</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    amount: <span class="number">30</span>,</span><br><span class="line">    ratio: <span class="number">0.2</span>,</span><br><span class="line">    memo: <span class="string">'睡觉'</span>,</span><br><span class="line">    <span class="keyword">const</span>: <span class="string">'const'</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    amount: <span class="number">10</span>,</span><br><span class="line">    ratio: <span class="number">0.05</span>,</span><br><span class="line">    memo: <span class="string">'吃饭'</span>,</span><br><span class="line">    <span class="keyword">const</span>: <span class="string">'const'</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    amount: <span class="number">30</span>,</span><br><span class="line">    ratio: <span class="number">0.15</span>,</span><br><span class="line">    memo: <span class="string">'讲礼貌'</span>,</span><br><span class="line">    <span class="keyword">const</span>: <span class="string">'const'</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    amount: <span class="number">10</span>,</span><br><span class="line">    ratio: <span class="number">0.05</span>,</span><br><span class="line">    memo: <span class="string">'其他'</span>,</span><br><span class="line">    <span class="keyword">const</span>: <span class="string">'const'</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    amount: <span class="number">20</span>,</span><br><span class="line">    ratio: <span class="number">0.1</span>,</span><br><span class="line">    memo: <span class="string">'运动'</span>,</span><br><span class="line">    <span class="keyword">const</span>: <span class="string">'const'</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    amount: <span class="number">10</span>,</span><br><span class="line">    ratio: <span class="number">0.05</span>,</span><br><span class="line">    memo: <span class="string">'暂无备注'</span>,</span><br><span class="line">    <span class="keyword">const</span>: <span class="string">'const'</span></span><br><span class="line">  &#125;];</span><br><span class="line">  chart = <span class="keyword">new</span> F2.Chart(&#123;</span><br><span class="line">    el: canvas,</span><br><span class="line">    width,</span><br><span class="line">    height</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  chart.source(data);</span><br><span class="line">  chart.coord(<span class="string">'polar'</span>, &#123;</span><br><span class="line">    transposed: <span class="literal">true</span>,</span><br><span class="line">    innerRadius: <span class="number">0.5</span>,</span><br><span class="line">    radius: <span class="number">0.65</span></span><br><span class="line">  &#125;);</span><br><span class="line">  chart.axis(<span class="literal">false</span>);</span><br><span class="line">  chart.legend(&#123;</span><br><span class="line">    position: <span class="string">'top'</span>,</span><br><span class="line">    align: <span class="string">'center'</span></span><br><span class="line">  &#125;);</span><br><span class="line">  chart.tooltip(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 配置文本饼图</span></span><br><span class="line">  chart.pieLabel(&#123;</span><br><span class="line">    sidePadding: <span class="number">30</span>,</span><br><span class="line">    inflectionOffset:<span class="number">20</span>,</span><br><span class="line">    adjustOffset:<span class="number">30</span>,</span><br><span class="line">    anchorOffset:<span class="number">10</span>,</span><br><span class="line">    skipOverlapLabels:<span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// activeShape:true,</span></span><br><span class="line">    label1: <span class="function"><span class="keyword">function</span> <span class="title">label1</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        text: data.memo + <span class="string">'$'</span> + data.amount.toFixed(<span class="number">2</span>),</span><br><span class="line">        fill: <span class="string">'#808080'</span></span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// label2: function label2(data) &#123;</span></span><br><span class="line">    <span class="comment">//   return &#123;</span></span><br><span class="line">    <span class="comment">//     fill: '#000000',</span></span><br><span class="line">    <span class="comment">//     text: '$' + data.amount.toFixed(2),</span></span><br><span class="line">    <span class="comment">//     fontWeight: 500,</span></span><br><span class="line">    <span class="comment">//     fontSize: 10</span></span><br><span class="line">    <span class="comment">//   &#125;;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//图表中间部分的文字，小程序或许不支持</span></span><br><span class="line">  <span class="comment">// chart.guide().html(&#123;</span></span><br><span class="line">  <span class="comment">//   position: ['50%', '45%'],</span></span><br><span class="line">  <span class="comment">//   html: `&lt;view style="width: 250px;height: 40px;text-align: center;"&gt;</span></span><br><span class="line">  <span class="comment">//     &lt;view style="font-size: 16px"&gt;总资产&lt;/view&gt;</span></span><br><span class="line">  <span class="comment">//     &lt;view style="font-size: 24px"&gt;133.08 亿&lt;/view&gt;</span></span><br><span class="line">  <span class="comment">//   &lt;/view&gt;`</span></span><br><span class="line">  <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">  chart.interval()</span><br><span class="line">    .position(<span class="string">'const*ratio'</span>)</span><br><span class="line">    .color(<span class="string">'memo'</span>, [<span class="string">'#1890FF'</span>, <span class="string">'#13C2C2'</span>, <span class="string">'#2FC25B'</span>, <span class="string">'#FACC14'</span>, <span class="string">'#F04864'</span>, <span class="string">'#8543E0'</span>, <span class="string">'#3436C7'</span>, <span class="string">'#223273'</span>])</span><br><span class="line">    .adjust(<span class="string">'stack'</span>);</span><br><span class="line">  chart.render();</span><br><span class="line">  chart.get(<span class="string">'canvas'</span>).draw();</span><br><span class="line">  <span class="keyword">return</span> chart;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 页面的初始数据</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    opts: &#123;</span><br><span class="line">      onInit: initChart</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -496,7 +492,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangyunyou.top/VUE%E6%8A%A5%E9%94%99NavigationDuplicated/" title="vue报错NavigationDuplicated">http://wangyunyou.top/VUE%E6%8A%A5%E9%94%99NavigationDuplicated/</a>
+    <a href="http://wangyunyou.top/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8antV-f2%E7%BB%84%E4%BB%B6/" title="小程序使用antV-f2组件">http://wangyunyou.top/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8antV-f2%E7%BB%84%E4%BB%B6/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -511,7 +507,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="tag"># 小程序</a>
           
         </div>
       
@@ -524,8 +520,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/MD%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%AF%B4%E6%98%8E%EF%BC%88%E4%BA%94%EF%BC%89/" rel="next" title=".md文档写作说明（五）">
-                <i class="fa fa-chevron-left"></i> .md文档写作说明（五）
+              <a href="/vue%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E8%B7%A8%E5%9F%9F/" rel="next" title="vue项目配置跨域">
+                <i class="fa fa-chevron-left"></i> vue项目配置跨域
               </a>
             
           </div>
@@ -534,8 +530,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/" rel="prev" title="日期操作方法">
-                日期操作方法 <i class="fa fa-chevron-right"></i>
+              <a href="/vue%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1404/" rel="prev" title="vue配置路由404">
+                vue配置路由404 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -700,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#出错方式"><span class="nav-text">出错方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报错信息"><span class="nav-text">报错信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-text">解决方案</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#wxml"><span class="nav-text">wxml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wxss"><span class="nav-text">wxss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-text">js</span></a></li></ol></div>
             
 
           </div>
