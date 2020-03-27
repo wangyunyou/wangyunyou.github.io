@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="项目需要配置一个 404 页面，在找不到页面路径时跳转，其实非常简单，直接上代码。">
+<meta name="description" content="项目中需要配置一个 404 页面，在找不到页面路径的时候跳转，其实非常简单，直接上代码。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue配置路由404">
 <meta property="og:url" content="http:&#x2F;&#x2F;wangyunyou.top&#x2F;vue%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1404&#x2F;index.html">
 <meta property="og:site_name" content="王云优">
-<meta property="og:description" content="项目需要配置一个 404 页面，在找不到页面路径时跳转，其实非常简单，直接上代码。">
+<meta property="og:description" content="项目中需要配置一个 404 页面，在找不到页面路径的时候跳转，其实非常简单，直接上代码。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-23T07:49:03.144Z">
+<meta property="og:updated_time" content="2020-03-27T01:05:38.724Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  68 字
+                  71 字
                 </span>
               
 
@@ -432,7 +432,7 @@
       
 
       
-        <p>项目需要配置一个 404 页面，在找不到页面路径时跳转，其实非常简单，直接上代码。</p>
+        <p>项目中需要配置一个 404 页面，在找不到页面路径的时候跳转，其实非常简单，直接上代码。</p>
 <a id="more"></a>
 
 <h3 id="修改-router-文件夹下的-index-js"><a href="#修改-router-文件夹下的-index-js" class="headerlink" title="修改 router 文件夹下的 index.js"></a>修改 router 文件夹下的 index.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  <span class="comment">//直接上404代码</span></span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">'/404'</span>,</span><br><span class="line">    name: <span class="string">'404'</span>,</span><br><span class="line">    component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'../views/404'</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="string">'*'</span>,</span><br><span class="line">    redirect: <span class="string">'/404'</span>,</span><br><span class="line">    hidden: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
