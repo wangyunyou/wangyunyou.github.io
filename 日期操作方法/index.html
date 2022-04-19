@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="虽然现在处理日期方面已经有了很成熟的也很好用的库，例如（momentjs和date-fns），但是在实际开发中，我们有时候可能并不需要整个库。所以我就在下面整理了在前端开发时对日期时间的各种操作，也算是比较全的了。其中一部分来自自己，还有一部分来源于我们万能的网友~本文转载自：https:&#x2F;&#x2F;segmentfault.com&#x2F;a&#x2F;1190000021559646">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日期操作方法">
+<meta property="og:url" content="http://wangyunyou.top/%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="王云优">
+<meta property="og:description" content="虽然现在处理日期方面已经有了很成熟的也很好用的库，例如（momentjs和date-fns），但是在实际开发中，我们有时候可能并不需要整个库。所以我就在下面整理了在前端开发时对日期时间的各种操作，也算是比较全的了。其中一部分来自自己，还有一部分来源于我们万能的网友~本文转载自：https:&#x2F;&#x2F;segmentfault.com&#x2F;a&#x2F;1190000021559646">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-12-28T02:32:53.000Z">
+<meta property="article:modified_time" content="2020-02-10T07:00:24.000Z">
+<meta property="article:author" content="王云优">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wangyunyou.top/日期操作方法/"/>
+
+
+
+
+
+  <title>日期操作方法 | 王云优</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?4fada86c9250b82e6229a1e1c0b15c44";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王云优</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">来了就坐坐吧(づ｡◕‿‿◕｡)づ</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-total">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            total
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wangyunyou.top/%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/photo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王云优">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">日期操作方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-28T10:32:53+08:00">
+                2019-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.1k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>虽然现在处理日期方面已经有了很成熟的也很好用的库，例如（momentjs和date-fns），但是在实际开发中，我们有时候可能并不需要整个库。<br>所以我就在下面整理了在前端开发时对日期时间的各种操作，也算是比较全的了。其中一部分来自自己，还有一部分来源于我们万能的网友~<br>本文转载自：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021559646">https://segmentfault.com/a/1190000021559646</a></p>
+<span id="more"></span>
+
+<h3 id="获取当前时间戳"><a href="#获取当前时间戳" class="headerlink" title="获取当前时间戳"></a>获取当前时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timestamp = <span class="title class_">Date</span>.<span class="title function_">parse</span>(<span class="keyword">new</span>  <span class="title class_">Date</span>()); <span class="comment">//精确到秒</span></span><br><span class="line"><span class="keyword">var</span> timestamp = (<span class="keyword">new</span> <span class="title class_">Date</span>()).<span class="title function_">valueOf</span>();  <span class="comment">//精确到毫秒</span></span><br><span class="line"><span class="keyword">var</span> timestamp = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>(); <span class="comment">//精确到毫秒</span></span><br><span class="line"><span class="keyword">var</span> timestamp = +<span class="keyword">new</span> <span class="title class_">Date</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取指定时间戳"><a href="#获取指定时间戳" class="headerlink" title="获取指定时间戳"></a>获取指定时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timestamp = (<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot; 2019/10/24 08:00:00&quot;</span>)).<span class="title function_">getTime</span>();</span><br><span class="line"><span class="keyword">var</span> timestamp = (<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot; 2019-10-24 08:00:00&quot;</span>)).<span class="title function_">getTime</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取当前时间的前一天-x2F-后一天的时间戳"><a href="#获取当前时间的前一天-x2F-后一天的时间戳" class="headerlink" title="获取当前时间的前一天&#x2F;后一天的时间戳"></a>获取当前时间的前一天&#x2F;后一天的时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timestamp = +<span class="keyword">new</span> <span class="title class_">Date</span>() - <span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>;</span><br><span class="line"><span class="keyword">var</span> timestamp = +<span class="keyword">new</span> <span class="title class_">Date</span>() + <span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="今日零点时间戳"><a href="#今日零点时间戳" class="headerlink" title="今日零点时间戳"></a>今日零点时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timestamp = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>()).<span class="title function_">getTime</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="今日最晚时间-23-59-59的时间戳"><a href="#今日最晚时间-23-59-59的时间戳" class="headerlink" title="今日最晚时间 23:59:59的时间戳"></a>今日最晚时间 23:59:59的时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timestamp = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>()).<span class="title function_">getTime</span>()+<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>-<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取当前时间的n天后的时间戳"><a href="#获取当前时间的n天后的时间戳" class="headerlink" title="获取当前时间的n天后的时间戳"></a>获取当前时间的n天后的时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; n 天数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Number</span>&#125; 返回值为时间毫秒值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">toNextTimes</span>(<span class="params">n</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> timestamp = +<span class="keyword">new</span> <span class="title class_">Date</span>() + n * <span class="number">86400000</span>;</span><br><span class="line">    <span class="keyword">return</span> timestamp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="本周第一天"><a href="#本周第一天" class="headerlink" title="本周第一天"></a>本周第一天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@return</span> &#123;<span class="type">*</span>&#125; WeekFirstDay 返回本周第一天的时间</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">showWeekFirstDay</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">Nowdate</span>=<span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">WeekFirstDay</span>=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title class_">Nowdate</span>-(<span class="title class_">Nowdate</span>.<span class="title function_">getDay</span>()-<span class="number">1</span>)*<span class="number">86400000</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">WeekFirstDay</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="本周最后一天"><a href="#本周最后一天" class="headerlink" title="本周最后一天"></a>本周最后一天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@return</span> &#123;<span class="type">*</span>&#125; WeekLastDay 返回本周最后一天的时间</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">showWeekLastDay</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">Nowdate</span>=<span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">WeekFirstDay</span>=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title class_">Nowdate</span>-(<span class="title class_">Nowdate</span>.<span class="title function_">getDay</span>()-<span class="number">1</span>)*<span class="number">86400000</span>);</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">WeekLastDay</span>=<span class="keyword">new</span> <span class="title class_">Date</span>((<span class="title class_">WeekFirstDay</span>/<span class="number">1000</span>+<span class="number">6</span>*<span class="number">86400</span>)*<span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">WeekLastDay</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="本月第一天"><a href="#本月第一天" class="headerlink" title="本月第一天"></a>本月第一天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@return</span> &#123;<span class="type">*</span>&#125; MonthFirstDay 返回本月第一天的时间</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">showMonthFirstDay</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">Nowdate</span>=<span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">MonthFirstDay</span>=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title class_">Nowdate</span>.<span class="title function_">getFullYear</span>(),<span class="title class_">Nowdate</span>.<span class="title function_">getMonth</span>());</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">MonthFirstDay</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="本月最后一天"><a href="#本月最后一天" class="headerlink" title="本月最后一天"></a>本月最后一天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@return</span> &#123;<span class="type">*</span>&#125; MonthLastDay 返回本月最后一天的时间</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">showMonthLastDay</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">Nowdate</span>=<span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">MonthNextFirstDay</span>=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title class_">Nowdate</span>.<span class="title function_">getFullYear</span>(),<span class="title class_">Nowdate</span>.<span class="title function_">getMonth</span>()+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">let</span> <span class="title class_">MonthLastDay</span>=<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="title class_">MonthNextFirstDay</span>-<span class="number">86400000</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">MonthLastDay</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="日期转时间戳"><a href="#日期转时间戳" class="headerlink" title="日期转时间戳"></a>日期转时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">String</span>&#125; <span class="variable">time</span> - 日期字符串，如&#x27;2018-8-8&#x27;,&#x27;2018,8,8&#x27;,&#x27;2018/8/8&#x27;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> &#123;<span class="type">Number</span>&#125; 返回值为时间毫秒值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">timeToTimestamp</span> (time) &#123;</span><br><span class="line">    <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="title class_">Date</span>(time);</span><br><span class="line">    <span class="keyword">let</span> timestamp = date.<span class="title function_">getTime</span>();</span><br><span class="line">    <span class="keyword">return</span> timestamp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="格式化当前时间"><a href="#格式化当前时间" class="headerlink" title="格式化当前时间"></a>格式化当前时间</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; timeText 返回系统时间字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getdataTimeSec</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> time = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">let</span> weekDay;</span><br><span class="line">    <span class="keyword">let</span> year = time.<span class="title function_">getFullYear</span>();</span><br><span class="line">    <span class="keyword">let</span> month = time.<span class="title function_">getMonth</span>() + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> day = time.<span class="title function_">getDate</span>();</span><br><span class="line">    <span class="comment">//获取时分秒</span></span><br><span class="line">    <span class="keyword">let</span> h = time.<span class="title function_">getHours</span>();</span><br><span class="line">    <span class="keyword">let</span> m = time.<span class="title function_">getMinutes</span>();</span><br><span class="line">    <span class="keyword">let</span> s = time.<span class="title function_">getSeconds</span>();</span><br><span class="line">    <span class="comment">//检查是否小于10</span></span><br><span class="line">    h = <span class="title function_">check</span>(h);</span><br><span class="line">    m = <span class="title function_">check</span>(m);</span><br><span class="line">    s = <span class="title function_">check</span>(s);</span><br><span class="line">    <span class="keyword">let</span> now_day = time.<span class="title function_">getDay</span>();</span><br><span class="line">    <span class="keyword">switch</span> (now_day) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期日&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期一&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期二&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期三&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期四&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期五&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期六&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">7</span>: &#123;</span><br><span class="line">            weekDay = <span class="string">&quot;星期日&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> timeText = year + <span class="string">&quot;年&quot;</span> + month + <span class="string">&quot;月&quot;</span> + day + <span class="string">&quot;日  &quot;</span> + <span class="string">&quot; &quot;</span> weekDay +</span><br><span class="line">     <span class="string">&quot; &quot;</span> + h + <span class="string">&quot;:&quot;</span> + m +<span class="string">&quot;:&quot;</span> + s;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> timeText</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="返回指定时间戳之间的时间间隔"><a href="#返回指定时间戳之间的时间间隔" class="headerlink" title="返回指定时间戳之间的时间间隔"></a>返回指定时间戳之间的时间间隔</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; startTime 开始时间的时间戳</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; endTime 结束时间的时间戳</span></span><br><span class="line"><span class="comment"> *  <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; str 返回时间字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getTimeInterval</span>(<span class="params">startTime, endTime</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> runTime = <span class="built_in">parseInt</span>((endTime - startTime) / <span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">let</span> year = <span class="title class_">Math</span>.<span class="title function_">floor</span>(runTime / <span class="number">86400</span> / <span class="number">365</span>);</span><br><span class="line">    runTime = runTime % (<span class="number">86400</span> * <span class="number">365</span>);</span><br><span class="line">    <span class="keyword">let</span> month = <span class="title class_">Math</span>.<span class="title function_">floor</span>(runTime / <span class="number">86400</span> / <span class="number">30</span>);</span><br><span class="line">    runTime = runTime % (<span class="number">86400</span> * <span class="number">30</span>);</span><br><span class="line">    <span class="keyword">let</span> day = <span class="title class_">Math</span>.<span class="title function_">floor</span>(runTime / <span class="number">86400</span>);</span><br><span class="line">    runTime = runTime % <span class="number">86400</span>;</span><br><span class="line">    <span class="keyword">let</span> hour = <span class="title class_">Math</span>.<span class="title function_">floor</span>(runTime / <span class="number">3600</span>);</span><br><span class="line">    runTime = runTime % <span class="number">3600</span>;</span><br><span class="line">    <span class="keyword">let</span> minute = <span class="title class_">Math</span>.<span class="title function_">floor</span>(runTime / <span class="number">60</span>);</span><br><span class="line">    runTime = runTime % <span class="number">60</span>;</span><br><span class="line">    <span class="keyword">let</span> second = runTime;</span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (year &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        str = year + <span class="string">&#x27;年&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (year &lt;= <span class="number">0</span> &amp;&amp; month &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        str = month + <span class="string">&#x27;月&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (year &lt;= <span class="number">0</span> &amp;&amp; month &lt;= <span class="number">0</span> &amp;&amp; day &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        str = day + <span class="string">&#x27;天&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (year &lt;= <span class="number">0</span> &amp;&amp; month &lt;= <span class="number">0</span> &amp;&amp; day &lt;= <span class="number">0</span> &amp;&amp; hour &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        str = hour + <span class="string">&#x27;小时&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (year &lt;= <span class="number">0</span> &amp;&amp; month &lt;= <span class="number">0</span> &amp;&amp; day &lt;= <span class="number">0</span> &amp;&amp; hour &lt;= <span class="number">0</span> &amp;&amp; minute &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        str = minute + <span class="string">&#x27;分钟&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (year &lt;= <span class="number">0</span> &amp;&amp; month &lt;= <span class="number">0</span> &amp;&amp; day &lt;= <span class="number">0</span> &amp;&amp; hour &lt;= <span class="number">0</span> &amp;&amp; minute &lt;= <span class="number">0</span> &amp;&amp; second &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        str += second + <span class="string">&#x27;秒&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    str += <span class="string">&#x27;前&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="按类型格式化日期"><a href="#按类型格式化日期" class="headerlink" title="按类型格式化日期"></a>按类型格式化日期</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; date 具体日期变量</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; dateType 需要返回类型</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; dateText 返回为指定格式的日期字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getFormatDate</span>(<span class="params">date, dateType</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> dateObj = <span class="keyword">new</span> <span class="title class_">Date</span>(date);</span><br><span class="line">    <span class="keyword">let</span> month = dateObj.<span class="title function_">getMonth</span>() + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> strDate = dateObj.<span class="title function_">getDate</span>();</span><br><span class="line">    <span class="keyword">let</span> hours = dateObj.<span class="title function_">getHours</span>();</span><br><span class="line">    <span class="keyword">let</span> minutes = dateObj.<span class="title function_">getMinutes</span>();</span><br><span class="line">    <span class="keyword">let</span> seconds = dateObj.<span class="title function_">getSeconds</span>();</span><br><span class="line">    <span class="keyword">if</span> (month &gt;= <span class="number">1</span> &amp;&amp; month &lt;= <span class="number">9</span>) &#123;</span><br><span class="line">        month = <span class="string">&quot;0&quot;</span> + month;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (strDate &gt;= <span class="number">0</span> &amp;&amp; strDate &lt;= <span class="number">9</span>) &#123;</span><br><span class="line">        strDate = <span class="string">&quot;0&quot;</span> + strDate;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (hours &gt;= <span class="number">0</span> &amp;&amp; hours &lt;= <span class="number">9</span>) &#123;</span><br><span class="line">        hours = <span class="string">&quot;0&quot;</span> + hours</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (minutes &gt;= <span class="number">0</span> &amp;&amp; minutes &lt;= <span class="number">9</span>) &#123;</span><br><span class="line">        minutes = <span class="string">&quot;0&quot;</span> + minutes</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (seconds &gt;= <span class="number">0</span> &amp;&amp; seconds &lt;= <span class="number">9</span>) &#123;</span><br><span class="line">        seconds = <span class="string">&quot;0&quot;</span> + seconds</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> dateText = dateObj.<span class="title function_">getFullYear</span>() + <span class="string">&#x27;年&#x27;</span> + (dateObj.<span class="title function_">getMonth</span>() + <span class="number">1</span>) + <span class="string">&#x27;月&#x27;</span> +</span><br><span class="line">     dateObj.<span class="title function_">getDate</span>() + <span class="string">&#x27;日&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (dateType == <span class="string">&quot;yyyy-mm-dd&quot;</span>) &#123;</span><br><span class="line">        dateText = dateObj.<span class="title function_">getFullYear</span>() + <span class="string">&#x27;-&#x27;</span> + (dateObj.<span class="title function_">getMonth</span>() + <span class="number">1</span>) + <span class="string">&#x27;-&#x27;</span> +</span><br><span class="line">         dateObj.<span class="title function_">getDate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dateType == <span class="string">&quot;yyyy.mm.dd&quot;</span>) &#123;</span><br><span class="line">        dateText = dateObj.<span class="title function_">getFullYear</span>() + <span class="string">&#x27;.&#x27;</span> + (dateObj.<span class="title function_">getMonth</span>() + <span class="number">1</span>) + <span class="string">&#x27;.&#x27;</span> +</span><br><span class="line">         dateObj.<span class="title function_">getDate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dateType == <span class="string">&quot;yyyy-mm-dd MM:mm:ss&quot;</span>) &#123;</span><br><span class="line">        dateText = dateObj.<span class="title function_">getFullYear</span>() + <span class="string">&#x27;-&#x27;</span> + month + <span class="string">&#x27;-&#x27;</span> + strDate + <span class="string">&#x27; &#x27;</span> +</span><br><span class="line">         hours + <span class="string">&quot;:&quot;</span> + minutes + <span class="string">&quot;:&quot;</span> + seconds;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dateType == <span class="string">&quot;mm-dd MM:mm:ss&quot;</span>) &#123;</span><br><span class="line">        dateText = month + <span class="string">&#x27;-&#x27;</span> + strDate + <span class="string">&#x27; &#x27;</span> + hours + <span class="string">&quot;:&quot;</span> + minutes + <span class="string">&quot;:&quot;</span> + seconds;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dateType == <span class="string">&quot;yyyy年mm月dd日 MM:mm:ss&quot;</span>) &#123;</span><br><span class="line">        dateText = dateObj.<span class="title function_">getFullYear</span>() + <span class="string">&#x27;年&#x27;</span> + month + <span class="string">&#x27;月&#x27;</span> + strDate + <span class="string">&#x27;日&#x27;</span> +</span><br><span class="line">         <span class="string">&#x27; &#x27;</span> + hours + <span class="string">&quot;:&quot;</span> + minutes + <span class="string">&quot;:&quot;</span> + seconds;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dateText;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断是否为闰年"><a href="#判断是否为闰年" class="headerlink" title="判断是否为闰年"></a>判断是否为闰年</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">number</span>&#125; year 要判断的年份</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125; 返回布尔值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">leapYear</span>(<span class="params">year</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> !(year % (year % <span class="number">100</span> ? <span class="number">4</span> : <span class="number">400</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="返回两个年份之间的闰年"><a href="#返回两个年份之间的闰年" class="headerlink" title="返回两个年份之间的闰年"></a>返回两个年份之间的闰年</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">number</span>&#125; start 开始年份</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">number</span>&#125; end 结束年份</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">array</span>&#125;  arr 返回符合闰年的数组</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">leapYears</span>(<span class="params">start, end</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=start; i&lt;end; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( <span class="title function_">leapYear</span>(i) ) &#123;</span><br><span class="line">            arr.<span class="title function_">push</span>(i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断时间格式是否有效"><a href="#判断时间格式是否有效" class="headerlink" title="判断时间格式是否有效"></a>判断时间格式是否有效</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 短时间，如 (10:24:06)</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; str 需要验证的短时间</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125; 返回布尔值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isTime</span>(<span class="params">str</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> a = str.<span class="title function_">match</span>(<span class="regexp">/^(\d&#123;1,2&#125;)(:)?(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;)$/</span>);</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">    <span class="keyword">if</span> (a[<span class="number">1</span>] &gt;= <span class="number">24</span> || a[<span class="number">3</span>] &gt;= <span class="number">60</span> || a[<span class="number">4</span>] &gt;= <span class="number">60</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 短日期，形如 (2019-10-24)</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; str 需要验证的短时间</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125; 返回布尔值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">strDateTime</span>(<span class="params">str</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> result = str.<span class="title function_">match</span>(<span class="regexp">/^(\d&#123;1,4&#125;)(-|\/)(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;)$/</span>);</span><br><span class="line">    <span class="keyword">if</span> (result == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>(result[<span class="number">1</span>], result[<span class="number">3</span>] - <span class="number">1</span>, result[<span class="number">4</span>]);</span><br><span class="line">    <span class="keyword">return</span> (d.<span class="title function_">getFullYear</span>() == result[<span class="number">1</span>] &amp;&amp; d.<span class="title function_">getMonth</span>() + <span class="number">1</span> == result[<span class="number">3</span>] &amp;&amp;</span><br><span class="line">     d.<span class="title function_">getDate</span>() == result[<span class="number">4</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 长日期时间，形如 (2019-10-24 10:24:06)</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; str 需要验证的短时间</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125; 返回布尔值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">strDateTime</span>(<span class="params">str</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> result = str.<span class="title function_">match</span>(<span class="regexp">/^(\d&#123;4&#125;)(-|\/)(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;) (\d&#123;1,2&#125;):(\d&#123;1,2&#125;):(\d&#123;1,2&#125;)$/</span>);</span><br><span class="line">    <span class="keyword">if</span> (result == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>(result[<span class="number">1</span>], result[<span class="number">3</span>] - <span class="number">1</span>, result[<span class="number">4</span>], result[<span class="number">5</span>], result[<span class="number">6</span>], result[<span class="number">7</span>]);</span><br><span class="line">    <span class="keyword">return</span> (d.<span class="title function_">getFullYear</span>() == result[<span class="number">1</span>] &amp;&amp; (d.<span class="title function_">getMonth</span>() + <span class="number">1</span>) ==</span><br><span class="line">     result[<span class="number">3</span>] &amp;&amp; d.<span class="title function_">getDate</span>() == result[<span class="number">4</span>] &amp;&amp; d.<span class="title function_">getHours</span>() ==</span><br><span class="line">      result[<span class="number">5</span>] &amp;&amp; d.<span class="title function_">getMinutes</span>() == result[<span class="number">6</span>] &amp;&amp; d.<span class="title function_">getSeconds</span>() == result[<span class="number">7</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证日期大小"><a href="#验证日期大小" class="headerlink" title="验证日期大小"></a>验证日期大小</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 例：&quot;2019-10-24&quot; 和 &quot;2019-10-25&quot;</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; d1需要验证的日期1</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; d2需要验证的日期2</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125; 返回布尔值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">compareDate</span>(<span class="params">d1, d2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> ((<span class="keyword">new</span> <span class="title class_">Date</span>(d1.<span class="title function_">replace</span>(<span class="regexp">/-/g</span>, <span class="string">&quot;\/&quot;</span>))) &lt; (<span class="keyword">new</span> <span class="title class_">Date</span>(d2.<span class="title function_">replace</span>(<span class="regexp">/-/g</span>, <span class="string">&quot;\/&quot;</span>))));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证一个日期是不是今天"><a href="#验证一个日期是不是今天" class="headerlink" title="验证一个日期是不是今天"></a>验证一个日期是不是今天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; val 需要验证的日期</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125; 返回布尔值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isToday</span>(<span class="params">val</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">toLocaleDateString</span>() == <span class="keyword">new</span> <span class="title class_">Date</span>(val).<span class="title function_">toLocaleDateString</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证传入的日期是否是昨天"><a href="#验证传入的日期是否是昨天" class="headerlink" title="验证传入的日期是否是昨天"></a>验证传入的日期是否是昨天</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; val 需要验证的日期</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125; 返回布尔值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isYesterday</span>(<span class="params">val</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> today = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> yesterday = <span class="keyword">new</span> <span class="title class_">Date</span>(now - <span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>);</span><br><span class="line">    <span class="keyword">var</span> test = <span class="keyword">new</span> <span class="title class_">Date</span>(val);</span><br><span class="line">    <span class="keyword">if</span> (yesterday.<span class="title function_">getYear</span>() === test.<span class="title function_">getYear</span>() &amp;&amp; yesterday.<span class="title function_">getMonth</span>() ===</span><br><span class="line">     test.<span class="title function_">getMonth</span>() &amp;&amp; yesterday.<span class="title function_">getDate</span>() === test.<span class="title function_">getDate</span>()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置几天后的日期"><a href="#设置几天后的日期" class="headerlink" title="设置几天后的日期"></a>设置几天后的日期</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">string</span>&#125; date 起始日期</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  &#123;<span class="type">number</span>&#125; day 向后的天数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> &#123;<span class="type">string</span>&#125; 返回想要得到的日期</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">convertDate</span> (date, day) &#123;</span><br><span class="line">    <span class="keyword">let</span> tempDate = <span class="keyword">new</span> <span class="title class_">Date</span>(date);</span><br><span class="line">    tempDate.<span class="title function_">setDate</span>(tempDate.<span class="title function_">getDate</span>()+day);</span><br><span class="line">    <span class="keyword">let</span> Y = tempDate.<span class="title function_">getFullYear</span>();</span><br><span class="line">    <span class="keyword">let</span> M = tempDate.<span class="title function_">getMonth</span>()+<span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span>+(tempDate.<span class="title function_">getMonth</span>()+<span class="number">1</span>) : tempDate.<span class="title function_">getMonth</span>()+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> D = tempDate.<span class="title function_">getDate</span>() &lt; <span class="number">10</span> ? <span class="string">&#x27;0&#x27;</span>+(tempDate.<span class="title function_">getDate</span>()) : tempDate.<span class="title function_">getDate</span>();</span><br><span class="line">    <span class="keyword">let</span> result = Y + <span class="string">&quot;-&quot;</span> + M + <span class="string">&quot;-&quot;</span> + D</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wepay.jpg" alt=" 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt=" 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    王云优
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wangyunyou.top/%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/" title="日期操作方法">http://wangyunyou.top/%E6%97%A5%E6%9C%9F%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/VUE%E6%8A%A5%E9%94%99NavigationDuplicated/" rel="next" title="vue报错NavigationDuplicated">
+                <i class="fa fa-chevron-left"></i> vue报错NavigationDuplicated
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/vue%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E8%B7%A8%E5%9F%9F/" rel="prev" title="vue项目配置跨域">
+                vue项目配置跨域 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/photo.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wangyunyou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/wangyunyou1995" target="_blank" title="新浪微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>新浪微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangyunyou1995@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/wangyunyou1995" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">1.</span> <span class="nav-text">获取当前时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">2.</span> <span class="nav-text">获取指定时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E7%9A%84%E5%89%8D%E4%B8%80%E5%A4%A9-x2F-%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">3.</span> <span class="nav-text">获取当前时间的前一天&#x2F;后一天的时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8A%E6%97%A5%E9%9B%B6%E7%82%B9%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">4.</span> <span class="nav-text">今日零点时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8A%E6%97%A5%E6%9C%80%E6%99%9A%E6%97%B6%E9%97%B4-23-59-59%E7%9A%84%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">5.</span> <span class="nav-text">今日最晚时间 23:59:59的时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E7%9A%84n%E5%A4%A9%E5%90%8E%E7%9A%84%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">6.</span> <span class="nav-text">获取当前时间的n天后的时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%91%A8%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="nav-number">7.</span> <span class="nav-text">本周第一天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%91%A8%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"><span class="nav-number">8.</span> <span class="nav-text">本周最后一天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%9C%88%E7%AC%AC%E4%B8%80%E5%A4%A9"><span class="nav-number">9.</span> <span class="nav-text">本月第一天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"><span class="nav-number">10.</span> <span class="nav-text">本月最后一天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%97%B6%E9%97%B4%E6%88%B3"><span class="nav-number">11.</span> <span class="nav-text">日期转时间戳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="nav-number">12.</span> <span class="nav-text">格式化当前时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%8C%87%E5%AE%9A%E6%97%B6%E9%97%B4%E6%88%B3%E4%B9%8B%E9%97%B4%E7%9A%84%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94"><span class="nav-number">13.</span> <span class="nav-text">返回指定时间戳之间的时间间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E7%B1%BB%E5%9E%8B%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%A5%E6%9C%9F"><span class="nav-number">14.</span> <span class="nav-text">按类型格式化日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E9%97%B0%E5%B9%B4"><span class="nav-number">15.</span> <span class="nav-text">判断是否为闰年</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E4%B8%A4%E4%B8%AA%E5%B9%B4%E4%BB%BD%E4%B9%8B%E9%97%B4%E7%9A%84%E9%97%B0%E5%B9%B4"><span class="nav-number">16.</span> <span class="nav-text">返回两个年份之间的闰年</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88"><span class="nav-number">17.</span> <span class="nav-text">判断时间格式是否有效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E6%97%A5%E6%9C%9F%E5%A4%A7%E5%B0%8F"><span class="nav-number">18.</span> <span class="nav-text">验证日期大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E4%B8%80%E4%B8%AA%E6%97%A5%E6%9C%9F%E6%98%AF%E4%B8%8D%E6%98%AF%E4%BB%8A%E5%A4%A9"><span class="nav-number">19.</span> <span class="nav-text">验证一个日期是不是今天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E4%BC%A0%E5%85%A5%E7%9A%84%E6%97%A5%E6%9C%9F%E6%98%AF%E5%90%A6%E6%98%AF%E6%98%A8%E5%A4%A9"><span class="nav-number">20.</span> <span class="nav-text">验证传入的日期是否是昨天</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%87%A0%E5%A4%A9%E5%90%8E%E7%9A%84%E6%97%A5%E6%9C%9F"><span class="nav-number">21.</span> <span class="nav-text">设置几天后的日期</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王云优</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">6.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
