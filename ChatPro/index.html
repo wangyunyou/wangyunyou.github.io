@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="
+        width=device-width,
+        initial-scale=1.0,
+        minimum-scale=1.0,
+        maximum-scale=1.0,
+        user-scalable=no"
+    />
     <title>王云优陪您聊天</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -64,9 +73,26 @@
         border: 2px solid #000;
       }
 
+      .inputPassword {
+        width: 250px;
+        height: 46px;
+        border-radius: 24px;
+        text-indent: 20px;
+        background-color: #f0f0f0;
+        border: 2px solid #000;
+      }
+
       .btn {
         height: 46px;
         width: 20%;
+        color: #333;
+        border-radius: 24px;
+        border: 2px solid #000;
+      }
+
+      .passwordBtn {
+        height: 46px;
+        width: 100px;
         color: #333;
         border-radius: 24px;
         border: 2px solid #000;
@@ -110,7 +136,18 @@
   </head>
   <body>
     <div id="app" class="app">
-      <div class="container">
+      <div v-if="!hasKey">
+        <input
+          v-model="key"
+          type="text"
+          @keyup.enter="putKey"
+          class="inputPassword"
+          placeholder="请输入密码"
+        />
+        <button @click="putKey" class="passwordBtn">确定</button>
+      </div>
+
+      <div class="container" v-if="hasKey">
         <div class="chat-container">
           <div
             v-for="(item,i) in msgList"
@@ -162,9 +199,18 @@
             ],
             msgContent: "",
             msg: "",
+            hasKey: false,
+            api2: "icmqET3BlbkFJl1WCZp8zalFFcJAymO68",
+            key: "",
           };
         },
         methods: {
+          putKey() {
+            if (this.key === "sk-bpaXBxqGmREl7tp") {
+              this.hasKey = true;
+              this.api = `${this.key}${this.api2}`;
+            }
+          },
           sendMsg() {
             if (this.msg == "") {
               return;
