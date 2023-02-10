@@ -30,7 +30,15 @@
         padding: 10px;
       }
 
+      .chat-container {
+        width: 100%;
+        height: calc(100% - 60px);
+        overflow: auto;
+        overflow-x: hidden;
+      }
+
       .footer {
+        height: 55px;
         position: absolute;
         bottom: 0;
         width: 100%;
@@ -103,23 +111,22 @@
   <body>
     <div id="app" class="app">
       <div class="container">
-        <div
-          v-for="(x,i) in msgList"
-          :key="i"
-          class="msg-container"
-          :class="x.my ? 'myMsg' : 'botMsg'"
-        >
-          <!-- 用户消息 -->
-          <div v-if="x.my" class="msg my">
-            <text class="msg-text">{{x.msg}}</text>
-          </div>
-          <!-- 机器人消息 -->
-          <div v-if="!x.my" class="msg bot">
-            <text class="msg-text">{{x.msg}}</text>
+        <div class="chat-container">
+          <div
+            v-for="(item,i) in msgList"
+            :key="i"
+            class="msg-container"
+            :class="item.my ? 'myMsg' : 'botMsg'"
+          >
+            <div v-if="item.my" class="msg my">
+              <text class="msg-text">{{item.msg}}</text>
+            </div>
+            <div v-if="!item.my" class="msg bot">
+              <text class="msg-text">{{item.msg}}</text>
+            </div>
           </div>
         </div>
 
-        <!-- 底部导航栏 -->
         <div class="footer">
           <div class="footer-container">
             <input
@@ -141,7 +148,7 @@
       createApp({
         data() {
           return {
-            api: "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",
+            api: "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",
             msgLoad: false,
             anData: {},
             sentext: "发送",
