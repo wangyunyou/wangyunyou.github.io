@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>王云优陪您聊天</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .app {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 90%;
+        height: 95%;
+        max-width: 500px;
+        background: #fafafa;
+        position: relative;
+        padding: 10px;
+      }
+
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .footer-container {
+        font-size: 55px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 75%;
+      }
+
+      .input {
+        width: 75%;
+        height: 46px;
+        border-radius: 24px;
+        text-indent: 20px;
+        background-color: #f0f0f0;
+        border: 2px solid #000;
+      }
+
+      .btn {
+        height: 46px;
+        width: 20%;
+        color: #333;
+        border-radius: 24px;
+        border: 2px solid #000;
+      }
+
+      .msg-container {
+        width: 100%;
+        margin-bottom: 6px;
+        display: flex;
+      }
+
+      .myMsg {
+        justify-content: flex-end;
+      }
+
+      .botMsg {
+        justify-content: flex-start;
+      }
+
+      .msg-text {
+        word-break: break-all;
+      }
+
+      .msg {
+        padding: 8px 16px;
+        display: inline-block;
+        font-size: 18rpx;
+        border-radius: 20px;
+      }
+
+      .my {
+        background: #333;
+        color: #fff;
+      }
+
+      .bot {
+        background: #ddd;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <div class="container">
+        <div
+          v-for="(x,i) in msgList"
+          :key="i"
+          class="msg-container"
+          :class="x.my ? 'myMsg' : 'botMsg'"
+        >
+          <!-- 用户消息 -->
+          <div v-if="x.my" class="msg my">
+            <text class="msg-text">{{x.msg}}</text>
+          </div>
+          <!-- 机器人消息 -->
+          <div v-if="!x.my" class="msg bot">
+            <text class="msg-text">{{x.msg}}</text>
+          </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="footer">
+          <div class="footer-container">
+            <input
+              v-model="msg"
+              type="text"
+              @keyup.enter="sendMsg"
+              class="input"
+              placeholder="请输入..."
+            />
+            <button @click="sendMsg" :disabled="msgLoad" class="btn">
+              {{sentext}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const { createApp } = Vue;
+      createApp({
+        data() {
+          return {
+            api: "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",
+            msgLoad: false,
+            anData: {},
+            sentext: "发送",
+            animationData: {},
+            showTow: false,
+            msgList: [
+              {
+                my: false,
+                msg: "你好，我是王云优，请问有什么可以帮您",
+              },
+            ],
+            msgContent: "",
+            msg: "",
+          };
+        },
+        methods: {
+          sendMsg() {
+            if (this.msg == "") {
+              return;
+            }
+            this.sentext = "发送中...";
+            this.msgList.push({
+              msg: this.msg,
+              my: true,
+            });
+            console.log(this.msg);
+            this.msgContent += this.msg + "\n";
+            this.msgLoad = true;
+            // 清除消息
+            this.msg = "";
+            axios
+              .post(
+                "https://api.openai.com/v1/completions",
+                {
+                  prompt: this.msgContent,
+                  max_tokens: 2048,
+                  model: "text-davinci-003",
+                },
+                {
+                  headers: {
+                    "content-type": "application/json",
+                    Authorization: "Bearer " + this.api,
+                  },
+                }
+              )
+              .then((res) => {
+                console.log(res);
+                let text = res.data.choices[0].text
+                  .replace("openai:", "")
+                  .replace("openai：", "")
+                  .replace("+", "")
+                  .replace("BOT", "")
+                  .replace(/^\n|\n$/g, "");
+                console.log(text);
+                this.msgList.push({
+                  msg: text,
+                  my: false,
+                });
+                this.msgContent += text + "\n";
+                this.msgLoad = false;
+                this.sentext = "发送";
+              });
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
